@@ -4,8 +4,8 @@ def N0(c0: (f64,f64)): f64 =
       ((c.0*c.0-c.1*c.1-c0.0,2*f64.abs(c.0*c.1)-c0.1),i+1)
   in i
 
-def burningship range (c_x,c_y) =
-  let N = 4000 let N64 = 4000.0
+def burningship N range (c_x,c_y) =
+  let N64 = f64.i64 N
   in
     tabulate_2d N N
       (\i j ->
@@ -13,4 +13,6 @@ def burningship range (c_x,c_y) =
           let y = c_y + 2*range*(f64.i64 j / N64 - 0.5)
           in (N0 (x,y)))
 
--- > :img burningship 0.04 (1.755,0.03)
+entry gen n w x y = burningship n w (x, y)
+
+-- > :img burningship 4000i64 0.04 (1.755,0.03)
