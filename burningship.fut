@@ -14,5 +14,3 @@ def burningship N range (c_x,c_y) =
           in (N0 (x,y)))
 
 entry gen n w x y = burningship n w (x, y)
-
--- > :img burningship 4000i64 0.04 (1.755,0.03)
